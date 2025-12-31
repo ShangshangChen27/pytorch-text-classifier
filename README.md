@@ -1,15 +1,22 @@
-# PyTorch Text Classifier
+# PyTorch Text Classifier (Minimal)
 
-A minimal text classification project built with PyTorch.
+A minimal end-to-end text classification project built with **PyTorch**.
+Goal: understand the full training loop (forward → loss → backward → optimizer step).
 
-## Goal
-- Understand the full training loop in PyTorch
-- Build a text classifier from scratch (no Hugging Face Trainer)
+## What it does
+- Classifies short text into **positive (1)** / **negative (0)** sentiment.
+- Uses a tiny toy dataset and a simple model:
+  - Embedding layer
+  - Mean pooling (masking PAD)
+  - Linear classifier
 
-## What this project includes
-- Custom Dataset
-- nn.Module model
-- Training loop (forward, loss, backward, optimizer step)
+## Project structure
+- `data.py`: toy dataset, vocab building, padding + `collate_batch`
+- `model.py`: `nn.Module` model (embedding + pooling + classifier)
+- `train.py`: DataLoader + training loop + simple predictions
 
-## Status
-Work in progress.
+## Setup
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install torch numpy
